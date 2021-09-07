@@ -2,14 +2,14 @@ import { Link, useHistory} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {  logout } from '../../actions/user.actions';
 const Navigation=()=>{
-    const logged = useSelector((state) => state.loggedIn);
+    const isLogin = useSelector((state) => state.loggedIn);
     const dispatch = useDispatch();
     let history = useHistory();
-    if(!logged){
-        localStorage.removeItem("auth");
-     }
+   
     const logoutHandler = () => {
         dispatch(logout());
+        localStorage.removeItem("auth");
+
         history.push("/");
     }
     return(<>
@@ -19,12 +19,12 @@ const Navigation=()=>{
    </Link>
    <nav>
      <ul>
-       {!logged&&
+       {!isLogin&&
        <li>
          <Link to='/auth'>Login</Link>
        </li>
        }
-       {logged&&
+       {isLogin&&
        <li>
         <button onClick={logoutHandler}>Logout</button>
        </li>

@@ -1,10 +1,14 @@
 import Navigation from './Navigation';
-import {Auth}  from '../../middleware/auth';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-   console.log(Auth())
+  const isLogin = useSelector((state) => state.loggedIn);
+  console.log(isLogin);
+  if(!isLogin){
+      localStorage.removeItem("auth");
+    }
   return (<>
-     { Auth() ? <Navigation /> :""}
+     { isLogin? <Navigation /> :""}
     </>
     
   );
