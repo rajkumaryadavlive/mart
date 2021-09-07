@@ -1,9 +1,6 @@
 import Modal from '@material-ui/core/Modal';
 
-const ProductModel=({open,handleClose})=>{
-    
-    let body=<Book />;
-    console.log(open);
+const ProductModel=({open,handleClose,body})=>{
 
     return(<>
           <Modal

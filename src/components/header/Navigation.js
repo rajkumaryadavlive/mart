@@ -15,7 +15,7 @@ const Navigation=()=>{
     return(<>
    <header className="header">
    <Link to='/'>
-     <div className="logo">Test App</div>
+     <h2 className="logo">Test App</h2>
    </Link>
    <nav>
      <ul>
